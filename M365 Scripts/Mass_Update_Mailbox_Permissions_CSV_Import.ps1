@@ -16,10 +16,9 @@ Connect-ExchangeOnline
 $usr1 = "David@haugenrv.com"
 $usr2 = "corbin@legacyrvcenter.com"
 $usr3 = "Amy@legacyrvcenter.com"
-$usr4 = "tlit@haugenrv.com"
 
 #Loop through each entry in the targeted CSV file
-Import-CSV -Path "C:\temp\HRV_MO-Users-export-testbatch.csv" | Foreach-Object {
+Import-CSV -Path "C:\temp\HRV_MO-Users-export.csv" | Foreach-Object {
 
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
     $upn = $_.upn
@@ -29,10 +28,9 @@ Import-CSV -Path "C:\temp\HRV_MO-Users-export-testbatch.csv" | Foreach-Object {
 
     #Add permissions to the current mailbox in the loop and do not automatically map to Outlook
     try {
-        Add-MailboxPermission -Identity $upn -User $user1 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
-        Add-MailboxPermission -Identity $upn -User $user2 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
-        Add-MailboxPermission -Identity $upn -User $user3 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
-        Add-MailboxPermission -Identity $upn -User $user4 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
+        Add-MailboxPermission -Identity $upn -User $usr1 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
+        Add-MailboxPermission -Identity $upn -User $usr2 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
+        Add-MailboxPermission -Identity $upn -User $usr3 -AccessRights FullAccess -InheritanceType All -AutoMapping $false
         Write-Host ("Successfully updated permissions for " + $upn) -BackgroundColor Black -ForegroundColor Green
     }
     catch {
