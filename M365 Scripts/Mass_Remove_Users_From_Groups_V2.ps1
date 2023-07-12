@@ -8,8 +8,11 @@
 
 #>
 
+#Connect to Exchange Online
+Connect-ExchangeOnline
+
 #Iterate through each line in CSV
-Import-CSV -Path "C:\temp\HRV_MO-Users-export-testbatch.csv" | ForEach-Object {
+Import-CSV -Path "C:\temp\HRV_MO-Users-export.csv" | ForEach-Object {
 
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
     $upn = $_.upn
@@ -18,7 +21,6 @@ Import-CSV -Path "C:\temp\HRV_MO-Users-export-testbatch.csv" | ForEach-Object {
     $upn
          
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
-    .\Remove_User_All_GroupsV2.ps1 -Identity $upn -WhatIf -IncludeAADSecurityGroups -IncludeOffice365Groups
-
+    .\Remove_User_All_GroupsV2.ps1 -Identity $upn -IncludeAADSecurityGroups -IncludeOffice365Groups
 
 }
