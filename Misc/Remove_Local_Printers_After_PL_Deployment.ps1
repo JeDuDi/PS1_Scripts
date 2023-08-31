@@ -1,0 +1,1 @@
+﻿Get-Printer | Where-Object {($_.name  -NotLike "*PL-*") -and ($_.name  -NotLike "*XPS*") -and ($_.name  -NotLike "*PDF*") -and ($_.name  -NotLike "*OneNote*") -and ($_.name  -NotLike "*Fax*")} | Remove-Printer
