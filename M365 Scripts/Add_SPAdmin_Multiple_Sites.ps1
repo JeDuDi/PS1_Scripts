@@ -1,5 +1,14 @@
-﻿#Parameters
-$TenantAdminURL = "https://theneighborlyway-admin.sharepoint.com"
+﻿<#
+
+    .PURPOSE
+        This script will connect to SPO and add SP admins from the targeted CSV file to all SP sites. 
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+#Parameters
+$TenantAdminURL = "https://yourtenant-admin.sharepoint.com"
 $CSVFilePath = "C:\Temp\SiteCollectionAdmin.csv"
  
 Try {

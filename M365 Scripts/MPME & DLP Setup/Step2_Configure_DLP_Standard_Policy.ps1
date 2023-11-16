@@ -1,21 +1,27 @@
-﻿#Connect to O365 Security and Compliance Center
+﻿<#
+
+    .PURPOSE
+        Deploys a standard DLP policy to an M365 tenant. 
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+#Connect to O365 Security and Compliance Center
 Connect-IPPSSession
 
 #Read all properties of the DLP policy
-#Get-DlpCompliancePolicy -Identity "TLIT Standard DLP Policy" | Format-List
-#Get-DlpComplianceRule -Identity "TLIT Standard Sensitive Data Types" | Format-List
-#Get-DlpComplianceRule | Format-List
 Get-DlpCompliancePolicy
 
 #Get DLP types for policy variables
 #Get-DlpSensitiveInformationType | Where { $_.Name -Like "*credit*"}
 
 #Define policy variables
-$dlp_PolicyName = "TLIT Standard DLP Policy"
+$dlp_PolicyName = "Standard DLP Policy"
 $dlp_Comment = "This standard DLP policy is set to warn the sender if sensitive data being sent to an outside party. "
 
 ###### UPDATE THIS!!!!!!!!!!
-$admin_target = "tlit@oralbiotech.com"
+$admin_target = "name@domain.com"
 
 #Create TLIT standard DLP policy
 New-DlpCompliancePolicy -Name $dlp_PolicyName `
@@ -26,7 +32,7 @@ New-DlpCompliancePolicy -Name $dlp_PolicyName `
                         -Priority 0
 
 #Create rules for policy to notify on sensitive data types
-New-DlpComplianceRule -Name "TLIT Standard Sensitive Data Types" `
+New-DlpComplianceRule -Name "Standard Sensitive Data Types" `
                         -Policy $dlp_PolicyName `
                         -ContentContainsSensitiveInformation @(@{Name =”ABA Routing Number”; minCount = “1”},@{Name =”Credit Card Number”;minCount=”1" },@{Name =”U.S. / U.K. Passport Number”;minCount=”1" },@{Name =”U.S. Bank Account Number”;minCount=”1" },@{Name =”U.S. Driver's License Number”;minCount=”1" },@{Name =”U.S. Individual Taxpayer Identification Number (ITIN)”;minCount=”1" },@{Name =”U.S. Social Security Number (SSN)”;minCount=”1" }) `
                         -AccessScope NotInOrganization `

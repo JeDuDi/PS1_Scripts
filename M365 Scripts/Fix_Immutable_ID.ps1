@@ -6,6 +6,8 @@
         You will need the MSOL PowerShell module installed to run these commands.
         Be careful not to lose the ObjectID and ImmutableID data during your audit as these cannot be recovered after deletion.
 
+        Created by JeDuDi
+
 #>
 
 #Connect to the necessary service for this script
@@ -14,10 +16,10 @@ Connect-MsolService
 #Get the ImmutableID for both accounts of the duplicated user
 
 #Log the Cloud-only Immutable ID (probably blank): 
-(Get-MsolUser -UserPrincipalName "jhorton@oralbiotech.com").ImmutableID
+(Get-MsolUser -UserPrincipalName "name@domain.com").ImmutableID
 
-#Log the ADSynced Account Immutable ID (to be assigned to the cloud-only account in another step): a4gg5AkopUCRMkXG/t4P0Q==      qLsQN2I/I0yxHcJg3OE9Bw==
-(Get-MsolUser -UserPrincipalName "jhorton@oralbiotech.onmicrosoft.com").ImmutableID
+#Log the ADSynced Account Immutable ID (to be assigned to the cloud-only account in another step):
+(Get-MsolUser -UserPrincipalName "duplicatename@domain.com").ImmutableID
 
 <#
 
@@ -30,7 +32,7 @@ Connect-MsolService
 #>
 
 #Now you will take the ImmutableID from the recently deleted ADSynced account and assign it to the cloud-only account
-Set-MsolUser -UserPrincipalName "jhorton@oralbiotech.com" -ImmutableID "qLsQN2I/I0yxHcJg3OE9Bw=="
+Set-MsolUser -UserPrincipalName "name@domain.com" -ImmutableID "xyzabc1234=="
 
 #Conversion tool for Hex, Base64, and GUID needed in rare cases
 $hexstring = "11 01 C3 26 C0 16 83 40 97 22 50 C1 74 AA 6F 32"     # <- set your own Hex string here

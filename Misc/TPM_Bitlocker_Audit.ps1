@@ -1,4 +1,12 @@
-﻿
+﻿<#
+
+    .PURPOSE
+        Returns information about the status of the TPM module and Bitlocker. 
+    
+    .NOTES
+        Created by JeDuDi
+
+#>
 
 (Get-Tpm).TpmPresent
 (Get-Tpm).TpmReady

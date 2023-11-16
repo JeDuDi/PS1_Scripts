@@ -1,4 +1,13 @@
-﻿#Connect to Services
+﻿<#
+
+    .PURPOSE
+        A collection of commands used to gather DLP and Trnasport Rule information from M36.
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+#Connect to Services
 Connect-AzureAD
 
 Connect-AipService
@@ -30,7 +39,7 @@ Get-MsolAccountSku
 #Get total number of licensed users with CA available license
 (Get-MsolUser -All | Where { $_.Licenses.AccountSkuId -like "*SPE_E3*" }).count
 
-Get-MsolUser | Where { $_.DisplayName -eq "Josh Jenkins" } | Format-List
+Get-MsolUser | Where { $_.DisplayName -eq "Client Name" } | Format-List
 
 #Disconnect from all services
 Disconnect-AipService

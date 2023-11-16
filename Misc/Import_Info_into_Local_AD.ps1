@@ -1,4 +1,14 @@
-﻿Import-Module ActiveDirectory  
+﻿<#
+
+    .PURPOSE
+        This script was created to import employee data from an M365 exported CSV file into local AD. 
+    
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+Import-Module ActiveDirectory  
 Import-CSV -Path "C:\import.csv" | Foreach-Object {
 
 # properties from the csv

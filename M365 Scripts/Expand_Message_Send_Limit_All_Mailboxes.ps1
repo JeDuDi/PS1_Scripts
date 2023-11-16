@@ -1,4 +1,13 @@
-﻿Connect-ExchangeOnline
+﻿<#
+
+    .PURPOSE
+        This script will expand the send and receive size limit for all mailboxes on Exchange ONline.
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+Connect-ExchangeOnline
 
 $mbxs = Get-Mailbox
 

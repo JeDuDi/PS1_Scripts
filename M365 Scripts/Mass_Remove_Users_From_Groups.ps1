@@ -3,7 +3,7 @@
     .PURPOSE
         The purpose of the script is to remove all groups from the users contained in your supplied CSV file.
     .NOTES
-        Modified from sharepointdiary.com: 7/12/23 by JD
+        Modified from sharepointdiary.com by JeDuDi
 
 #>
   
@@ -18,7 +18,7 @@ $AADGroups = Get-AzureADMSGroup -Filter "groupTypes/any(c:c eq 'Unified')" -All:
 $DistGroups = Get-DistributionGroup
  
 #Iterate through each line in CSV
-Import-CSV -Path "C:\temp\HRV_MO-Users-export-testbatch.csv" | ForEach-Object {
+Import-CSV -Path "C:\temp\Users-export-testbatch.csv" | ForEach-Object {
 
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
     $upn = $_.upn

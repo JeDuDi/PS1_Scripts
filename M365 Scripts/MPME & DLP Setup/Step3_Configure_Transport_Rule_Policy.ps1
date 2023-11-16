@@ -1,4 +1,13 @@
-﻿#Connect to Exchange Online
+﻿<#
+
+    .PURPOSE
+        Creates a Transport rule on the M365 tenant to monitor for sensitive information being sent to external parties.
+    .NOTES
+        Created by JeDuDi
+
+#>
+
+#Connect to Exchange Online
 Connect-ExchangeOnline
 
 Get-TransportRule -Identity "Microsoft Purview Message Encryption" | Format-List

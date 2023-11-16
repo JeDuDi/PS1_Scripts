@@ -9,6 +9,7 @@
         Install-Module Microsoft.Graph
         Import-Module Microsoft.Graph.Users
         Import-Module Microsoft.Graph.Groups
+        Modified by JeDuDi
 
 #>
 
@@ -16,7 +17,7 @@
 Connect-ExchangeOnline
 
 #Iterate through each line in CSV
-Import-CSV -Path "C:\temp\HRV_MO-Users-export.csv" | ForEach-Object {
+Import-CSV -Path "C:\temp\Users-export.csv" | ForEach-Object {
 
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
     $upn = $_.upn

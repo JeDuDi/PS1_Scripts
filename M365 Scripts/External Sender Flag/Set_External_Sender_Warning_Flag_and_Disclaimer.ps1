@@ -1,13 +1,13 @@
 ﻿<#
 
     .PURPOSE
-        The purpose of the script is to view the current Transport Rules and the ExternalInOutlook property in Exchange Online per tenant.
+        The purpose of this script is to view the current Transport Rules and the ExternalInOutlook property in Exchange Online per tenant.
         After viewing the current status, you can run the lines of code to create a new Transport Rule and set the ExternalInOutlook property which will begin flagging external emails within 48 hours of setup.
         Look for properties that should be customized such as -AllowList and the $SisterDomains variable as they should contain trusted domains that should not be flagged as external.
         You only need to set this for sister domains OUTSIDE of the current tenant you're working on. A single tenant with multiple domains does not need an allow list.
     
     .NOTES
-        Created: 1/2/23 by JD
+        Created by JeDuDi
 
 #>
 

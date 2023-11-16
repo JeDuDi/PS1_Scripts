@@ -5,7 +5,7 @@
         The script will add the selected users below to the list of mailboxes and will not automatically map these mailboxes to Outlook.
         This will allow the selected users to open all of the mailboxes through OWA as required.
     .NOTES
-        Created: 7/12/23 by JD
+        Created by JeDuDi 
 
 #>
 
@@ -13,12 +13,12 @@
 Connect-ExchangeOnline
 
 #Assign variables for delegated users to be used in the loop, these users will get full mailbox permissions to those mailboxes in the CSV file
-$usr1 = "David@haugenrv.com"
-$usr2 = "corbin@legacyrvcenter.com"
-$usr3 = "Amy@legacyrvcenter.com"
+$usr1 = "user1@domain.com"
+$usr2 = "user2@domain.com"
+$usr3 = "user3@domain.com"
 
 #Loop through each entry in the targeted CSV file
-Import-CSV -Path "C:\temp\HRV_MO-Users-export.csv" | Foreach-Object {
+Import-CSV -Path "C:\temp\Users-export.csv" | Foreach-Object {
 
     #Assign variables from the CSV file, these are mapped based off of column headers in the CSV file
     $upn = $_.upn
